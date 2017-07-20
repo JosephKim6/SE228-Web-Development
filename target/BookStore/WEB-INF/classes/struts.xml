@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Struts2 DTD -->
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<constant name="struts.devMode" value="true" />
+	<package name="process" extends="struts-default,json-default">
+		
+		<interceptors>
+			<interceptor name="userInterceptor" class="interceptor.UserInterceptor"/>
+			<interceptor name="adminInterceptor" class="interceptor.AdminInterceptor"/>
+		</interceptors>
+
+		<global-results>
+			<result name="login">/bookstore/jsp/login.jsp</result>
+		</global-results>
+
+		<!-- Book -->
+		<action name="allBooksPro" class="action.AllBooksAction">
+			<result name="success">/bookstore/jsp/book.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="addBookPro" class="action.AddBookAction">
+			<result name="success">/bookstore/jsp/book.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="updateBookPro" class="action.UpdateBookAction">
+			<result name="success">/bookstore/jsp/book.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="deleteBookPro" class="action.DeleteBookAction">
+			<result name="success">/bookstore/jsp/book.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+
+		<!-- Order -->
+		<action name="allOrdersPro" class="action.AllOrdersAction">
+			<result name="success">/bookstore/jsp/order.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="addOrderPro" class="action.AddOrderAction">
+			<result name="success">/bookstore/jsp/order.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="updateOrderPro" class="action.UpdateOrderAction">
+			<result name="success">/bookstore/jsp/order.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="deleteOrderPro" class="action.DeleteOrderAction">
+			<result name="success">/bookstore/jsp/order.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+
+		<!-- Orderitem -->
+		<action name="allOrderitemsPro" class="action.AllOrderitemsAction">
+			<result name="success">/bookstore/jsp/orderitem.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="addOrderitemPro" class="action.AddOrderitemAction">
+			<result name="success">/bookstore/jsp/orderitem.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="updateOrderitemPro" class="action.UpdateOrderitemAction">
+			<result name="success">/bookstore/jsp/orderitem.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="deleteOrderitemPro" class="action.DeleteOrderitemAction">
+			<result name="success">/bookstore/jsp/orderitem.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+
+		<!-- User -->
+		<action name="allUsersPro" class="action.AllUsersAction">
+			<result name="success">/bookstore/jsp/user.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="addUserPro" class="action.AddUserAction">
+			<result name="success">/bookstore/jsp/user.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="updateUserPro" class="action.UpdateUserAction">
+			<result name="success">/bookstore/jsp/user.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="deleteUserPro" class="action.DeleteUserAction">
+			<result name="success">/bookstore/jsp/user.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+
+		<!-- Register and Login -->
+		<action name="registerPro" class="action.RegisterAction">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="loginPro" class="action.LoginAction">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="logoutPro" class="action.LogoutAction">
+			<result name="success" type="redirectAction">checkUserPro</result>
+		</action>
+		<action name="checkUserPro" class="action.CheckUserAction">
+			<result name="success" type="redirectAction">buyListPro</result>
+			<result name="none" type="redirectAction">allBooksPro</result>
+			<result name="login" type="redirectAction">buyListPro</result>
+		</action>
+
+		<!-- Buy books -->
+		<action name="buyListPro" class="action.BuyListAction">
+			<result name="success">/bookstore/jsp/buybook.jsp</result>
+			<result name="error">/bookstore/jsp/welcome.jsp</result>
+		</action>
+		<action name="buyBookPro" class="action.BuyBookAction">
+			<result name="success">/bookstore/jsp/buybook.jsp</result>
+			<interceptor-ref name="userInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="getCartPro" class="action.GetCartAction">
+			<result name="success">/bookstore/jsp/cart.jsp</result>
+			<interceptor-ref name="userInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="payMoneyPro" class="action.PayMoneyAction">
+			<result name="success">/bookstore/jsp/cart.jsp</result>
+			<interceptor-ref name="userInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="deleteBuyPro" class="action.DeleteBuyAction">
+			<result name="success">/bookstore/jsp/cart.jsp</result>
+			<interceptor-ref name="userInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="myOrderPro" class="action.MyOrderAction">
+			<result name="success">/bookstore/jsp/myorder.jsp</result>
+			<interceptor-ref name="userInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="myProfilePro" class="action.MyProfileAction">
+			<result name="success">/bookstore/jsp/myprofile.jsp</result>
+			<interceptor-ref name="userInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="changeProfilePro" class="action.ChangeProfileAction">
+			<result name="success">/bookstore/jsp/myprofile.jsp</result>
+			<interceptor-ref name="userInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="changePasswordPro" class="action.ChangePasswordAction">
+			<result name="success">/bookstore/jsp/myprofile.jsp</result>
+			<interceptor-ref name="userInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="uploadAvatarPro" class="action.UploadAvatarAction">
+			<result name="success">/bookstore/jsp/myprofile.jsp</result>
+			<interceptor-ref name="userInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+
+
+		<!-- Detail action -->
+		<action name="getBookDetailPro" class="action.GetBookDetailAction">
+			<result name="success" type="json">
+				<param name="root">bookDes</param>
+			</result>
+		</action>
+		<action name="getBookImagePro" class="action.GetBookImageAction"/>
+		<action name="getUserDescriptionPro" class="action.GetUserDescriptionAction">
+			<result name="success" type="json">
+				<param name="root">description</param>
+			</result>
+		</action>
+		<action name="getUserDescriptionByIdPro" class="action.GetUserDescriptionByIdAction">
+			<result name="success" type="json">
+				<param name="root">description</param>
+			</result>
+		</action>
+
+
+		<!-- Sales Statistics -->
+		<action name="salesPro" class="action.SalesAction">
+			<result name="success">/bookstore/jsp/sales.jsp</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="searchSalesByUserPro" class="action.SearchSalesByUserAction">
+			<result name="success" type="json">
+				<param name="root">orderList</param>
+			</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="searchSalesByBookPro" class="action.SearchSalesByBookAction">
+			<result name="success" type="json">
+				<param name="root">orderList</param>
+			</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		<action name="searchSalesByDatePro" class="action.SearchSalesByDateAction">
+			<result name="success" type="json">
+				<param name="root">orderList</param>
+			</result>
+			<interceptor-ref name="adminInterceptor">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+
+		<action name="*">
+			<result>/{1}.jsp</result>
+		</action>
+	</package>
+</struts>
